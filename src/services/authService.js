@@ -30,8 +30,12 @@ exports.register = async (req, res) => {
     //Registering the user with createUser function in userController.js
     const response = await createUser(newUser)
 
-    //Setting response header and body
-    res.status(response.status).json(response.body)
+    //Auto-login the user upon successful registration to the system.
+    if(response.status === HttpStatus.CREATED){
+        await this.login(req,res)
+    }else{
+        res.status(response.status).json(response.body)
+    }
 
 }
 
