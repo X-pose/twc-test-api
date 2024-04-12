@@ -21,7 +21,7 @@ app.use('/', appRouter)
 
 //Set routes
 app.use('/api/auth', authRoutes)
-//app.use('/api/contact', contactRoutes)
+app.use('/api/contact', contactRoutes)
 
 //Exporting app to be used by the server.js
 module.exports = app
