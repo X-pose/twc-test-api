@@ -58,7 +58,7 @@ exports.login = async (req, res) => {
             const JWTtoken = jwt.sign({ userId: retrivedUser._id }, process.env.JWT_SECRET, { expiresIn: '3h' })
 
             //Setting the response header with OK and dispatching the JWT Token in a JSON body
-            res.status(HttpStatus.OK).json({ token: JWTtoken })
+            res.status(HttpStatus.OK).json({ TWCtoken: JWTtoken })
         } else {
             //If password didn't match, unauthorize the login request
             res.status(HttpStatus.UNAUTHORIZED).json({ body: "User authentication failed!" })
