@@ -4,6 +4,7 @@
 
 //Imports and requires
 const AppExpress = require('express')
+const cors = require('cors')
 const app = AppExpress()
 const appRouter = AppExpress.Router()
 const connectDB = require('./config/database')
@@ -16,6 +17,11 @@ const contactRoutes = require('./src/routes/contactRoutes')
 connectDB.getInstance()
 
 //Mounting middleware to API calls
+app.use(
+    cors({
+        origin: "http://localhost:5173"
+    })
+)
 app.use(AppExpress.json())
 app.use('/', appRouter)
 
