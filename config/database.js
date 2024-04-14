@@ -39,6 +39,7 @@ const createConnection = async () => {
 }
 
 //Using singleton pattern to ensure there's only one reference to the mongoose connection pool to avoid overhead.
+//Multiple clients can access this object same time and accquire a connection from the mongoose connection pool
 const getInstance = () => {
 
     if(!mongoInstance){
