@@ -9,7 +9,7 @@ const contactSchema = new mongoose.Schema({
     fullName: { type: String, required: true },
     email: { type: String, required: true, unique: true, trim: true, lowercase: true },
     phoneNumber: { type: String, required: true, minlength: 10 },
-    gender: { type: String, required: true, enum: ['male', 'female'] }
+    gender: { type: String, required: true, enum: ['Male', 'Female'] }
 
 }, { collection: 'Contacts' })
 
