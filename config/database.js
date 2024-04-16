@@ -3,7 +3,7 @@
  */
 
 const mongoose = require('mongoose')
-require('dotenv').config();
+require('dotenv').config()
 const logger = require('./logger')
 
 //Database URI
@@ -24,7 +24,7 @@ const createConnection = async () => {
             dbName: DB_NAME,
             minPoolSize: DB_MIN_POOL_SIZE, //Creating a connection pool
             maxPoolSize: DB_MAX_POOL_SIZE
-        });
+        })
         
         logger.logsInto.log('info','Connected to MongoDB') 
         console.log('Connected to MongoDB')

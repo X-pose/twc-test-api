@@ -13,11 +13,11 @@ const port = process.env.PORT
 
 
 //Creates HTTP server
-const server = http.createServer(app);
+const server = http.createServer(app)
 
 //Server then  listen to the port (3000)
 server.listen(port, () => {
     logger.logsInto.log('info', `Server is running on port ${port}`)
     console.log(`Server is running on port ${port}`)
 
-});
+})

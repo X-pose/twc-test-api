@@ -5,7 +5,7 @@
 
 //Requires
 const HttpStatus = require('../enums/httpStatus')
-const { createContact, updateContact, getAllContacts, getContactById, deleteContact } = require('../controllers/contactController')
+const { createContact, updateContact, getAllContacts, deleteContact } = require('../controllers/contactController')
 const { verifyToken } = require('./jwtService')
 const sysWarn = require('../enums/systemWarnings')
 
@@ -37,6 +37,7 @@ exports.addContact = async (req, res) => {
 
 }
 
+
 exports.updateContact = async (req, res) => {
 
     //authenticating request before proceeding further
@@ -57,31 +58,6 @@ exports.updateContact = async (req, res) => {
     }
 }
 
-exports.getContactById = async (req, res) => {
-
-    //authenticating request before proceeding further
-    const reqAuthenticate = await verifyToken(req)
-
-    if (reqAuthenticate.status === HttpStatus.OK) {
-
-        const contactId = req.params.id
-
-        //Getting the contact using getContactById() in contactController.js
-        const response = await getContactById(contactId)
-
-        if (response.body !== null) {
-            //Setting response header and body
-            res.status(response.status).json(response.body)
-        }
-        else if (response.body === null) {
-
-            res.status(response.status).json({ body: sysWarn.CONTACT_NOT_FOUND })
-        }
-
-    } else {
-        res.status(reqAuthenticate.status).json(reqAuthenticate.body)
-    }
-}
 
 exports.getAllContacts = async (req, res) => {
 

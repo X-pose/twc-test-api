@@ -36,15 +36,7 @@ exports.getAllContacts = async () => {
     }
 }
 
-exports.getContactById = async (id) => {
-    try {
-        const response = await contactModel.findById(id)
-        return { status: HttpStatus.OK, body: response }
-    } catch (error) {
-        logger.logsInto.log('error', 'Internal server error at getContactById(). More details : ' + error)
-        return { status: HttpStatus.INTERNAL_SERVER_ERROR, body: error }
-    }
-}
+
 
 exports.deleteContact = async (id) => {
     try {

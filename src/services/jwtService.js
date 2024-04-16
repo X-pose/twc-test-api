@@ -5,7 +5,7 @@
 
 //Requires
 const jwt = require('jsonwebtoken')
-require('dotenv').config();
+require('dotenv').config()
 const sysWarn = require('../enums/systemWarnings')
 const HttpStatus = require('../enums/httpStatus')
 
@@ -24,7 +24,7 @@ exports.verifyToken = async (req) => {
 
     try {
         //Decodes token and extract UserID - Not needed for the given tasks
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
         const userId = decoded.userId
         return { status: HttpStatus.OK, body: userId }
 
@@ -32,4 +32,4 @@ exports.verifyToken = async (req) => {
         //If error occured during decode phase, responds with Invalid token message.
         return { status: HttpStatus.UNAUTHORIZED, body: sysWarn.INVALID_JWT_TOKEN }
     }
-};
+}

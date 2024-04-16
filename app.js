@@ -16,12 +16,18 @@ const contactRoutes = require('./src/routes/contactRoutes')
 //Establishing MongoDB connection
 connectDB.getInstance()
 
-//Mounting middleware to API calls
+
+const allowedOrigins = [
+    "http://localhost:5173",
+    "http://localhost:4173"
+]
+//Mounting middlewares to API calls 
 app.use(
     cors({
-        origin: "http://localhost:5173"
+        origin: allowedOrigins
     })
 )
+
 app.use(AppExpress.json())
 app.use('/', appRouter)
 

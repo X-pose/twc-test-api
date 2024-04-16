@@ -6,6 +6,6 @@ const SysWarn = Object.freeze({
     INVALID_JWT_TOKEN: 'Unauthorized: Invalid token',
     CONTACT_NOT_FOUND: 'Contact not found',
     CONTACT_LIST_IS_EMPTY: 'Contact list is empty!!!'
-});
+})
 
-module.exports = SysWarn;
+module.exports = SysWarn
